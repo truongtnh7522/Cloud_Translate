@@ -142,7 +142,7 @@
       color: white;
     }
 
-    #wrapper {
+    #wrapper1 {
       height: 100px;
       width: 100px;
       display: flex;
@@ -151,13 +151,13 @@
       position: relative;
     }
 
-    #wrapper #fas1 {
+    #wrapper1 #fas1 {
       position: absolute;
       top: 42px;
       right: 20px;
     }
 
-    #wrapper #fas2 {
+    #wrapper1 #fas2 {
       position: absolute;
       top: 42px;
       right: 60px;
@@ -239,7 +239,7 @@
       <div class="title" style="width: 100%; text-align: center">
         <h1>TTC TRANSLATE</h1>
       </div>
-      <div id="wrapper">
+      <div id="wrapper1">
         <input type="checkbox" name="" class="switch-toggle" id="light-dark" />
         <i class="fas fa-moon" id="fas1"></i>
         <i class="fas fa-sun" id="fas2"></i>
@@ -483,13 +483,7 @@
                 ">
               <i class="fa fa-volume-up text-light"></i>
             </button>
-            <button id="downloadselect" class="download-btn btn" style="
-                  background: #ec1839;
-                  line-height: 10px;
-                  margin-top: -35px;
-                ">
-              <i class="fa fa-download" style="color: white"></i>
-            </button>
+           
             <div class="btncoppy">
               <button style="
                     border-radius: 5px;
@@ -501,12 +495,44 @@
                   ">
                 <i class="fas fa-copy"></i></button><span class="tooltip" style="color: black">copied</span>
             </div>
-
+            <div class="wrapper" style="border: 1px solid black;padding: 5px;border-radius: 5px; margin-left: 5px;display: flex;">
+              <div class="wraller2" style="display: flex;">
+              <div class="file-options">
+                <div class="option file-name">
+                  <label>File name</label>
+                  <input type="text" spellcheck="false" placeholder="Enter file name" style="outline:none;border-radius:5px">
+                </div>
+                <div class="option save-as" style="display: flex; margin-top: 5px;">
+                  <label>Save as  </label>
+                  <div class="select-menu" style="margin-left: 20px;">
+                    <select style="width: 188px; border-radius:5px">
+                      <option value="text/plain">Text File (.txt)</option>
+                      <option value="text/javascript">JS File (.js)</option>
+                      <option value="text/html">HTML File (.html)</option>
+                      <option value="image/svg+xml">SVG File (.svg)</option>
+                      <option value="application/msword">Doc File (.doc)</option>
+                      <option value="application/vnd.ms-powerpoint">PPT File (.ppt)</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="wrapp3">
+                <button id="downloadselect" class="download-btn btn" style="
+                background: #ec1839;
+                line-height: 10px;
+                margin-top: 10px;
+                margin-left:2px;
+              ">
+            <i class="fa fa-download" style="color: white"></i>
+          </button></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="filee" style="display: flex;">
+    <div class="filee" style="display: flex;margin-top: -150px;margin-left: 200px;">
       <div class="textract" style="
           border: 1px solid black;
           padding: 20px;
@@ -563,28 +589,7 @@
 
 
 
-  <div class="wrapper">
-
-    <div class="file-options">
-      <div class="option file-name">
-        <label>File name</label>
-        <input type="text" spellcheck="false" placeholder="Enter file name">
-      </div>
-      <div class="option save-as">
-        <label>Save as</label>
-        <div class="select-menu">
-          <select>
-            <option value="text/plain">Text File (.txt)</option>
-            <option value="text/javascript">JS File (.js)</option>
-            <option value="text/html">HTML File (.html)</option>
-            <option value="image/svg+xml">SVG File (.svg)</option>
-            <option value="application/msword">Doc File (.doc)</option>
-            <option value="application/vnd.ms-powerpoint">PPT File (.ppt)</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
 
 
