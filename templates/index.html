@@ -54,6 +54,8 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        padding-left: 100px;
+        padding-right: 100px;
       }
 
       .select-language {
@@ -198,6 +200,7 @@ h1::before {
       }
       .mainn{
         display: flex;
+        margin-bottom: 40px;
       }
       .swap {
   transition: all 0.3s ease;
@@ -216,7 +219,7 @@ h1::before {
 .form-group .clear-btn{
     position: absolute;
     right: 820px;
-    top: 240px;
+    top: 285px;
     width: 35px;
     height: 35px;
     background-color: rgb(244, 244, 244);
@@ -231,7 +234,7 @@ h1::before {
     <div class="container">
       <div class="mainn">
         <div class="title" style="width: 100%; text-align: center">
-          <h1>TRANSLATE AWS</h1>
+          <h1>TTC TRANSLATE</h1>
         </div>
         <div id="wrapper">
           <input type="checkbox" name="" class="switch-toggle" id="light-dark" />
@@ -240,7 +243,7 @@ h1::before {
         </div>
       </div>
       <div class="sub-container">
-        <div class="content">
+        <div class="content" style="border: 1px solid black;box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);border-radius: 10px;background: #eeeeee95;">
           <div class="left-side">
             <div class="select-language">
               <!-- <p style="line-height: 10px; font-size: 20px">Source Language</p> -->
@@ -549,6 +552,7 @@ h1::before {
           </div>
         </div>
       </div>
+      <div class="filee" style="display: flex;">
       <div
         class="textract"
         style="
@@ -613,6 +617,7 @@ h1::before {
           ,
           enctype="multipart/form-data"
           class="main__menu--tool-form1"
+          
         >
           <input
             style="color: black"
@@ -641,6 +646,7 @@ h1::before {
           <i class="fas fa-file"></i>
         </button>
        
+      </div>
       </div>
      
       <!-- <button id="uploaddocument" class="btn btn-primary" onclick="loadFileAsDoucument()">EXTRACT</button> -->
