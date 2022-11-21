@@ -23,9 +23,9 @@
 - Bước 1: Clone project về máy https://github.com/truongtnh7522/Cloud_Translate.git .
 
 - Bước 2: Chỉnh sửa lại key trong app.py và index.html 
-![](aws-translate-app/translate-app/assets/config_app.png)
+![](assets/config_app.png)
 
-![](aws-translate-app/translate-app/assets/config_index.png)
+![](assets/config_index.png)
 
 - Bước 3: pip install flask 
 
