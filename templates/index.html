@@ -1,340 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" type="image/png" href="/aws-translate-app/translate-app/templates/NPC.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      id="bootstrap-css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <title>Translate AWS</title>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1048.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="https://play-lh.googleusercontent.com/DTzWtkxfnKwFO3ruybY1SKjJQnLYeuK3KmQmwV5OQ3dULr5iXxeEtzBLceultrKTIUTr"
-    />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="shortcut icon" type="image/png" href="/aws-translate-app/translate-app/templates/NPC.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    id="bootstrap-css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <title>Translate AWS</title>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1048.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/png"
+    href="https://play-lh.googleusercontent.com/DTzWtkxfnKwFO3ruybY1SKjJQnLYeuK3KmQmwV5OQ3dULr5iXxeEtzBLceultrKTIUTr" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  </head>
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-  <body>
-    <style>
-      :root {
-        --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66) 0.3s;
-      }
-      .container {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
+<body>
+  <style>
+    :root {
+      --transition-effect: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66) 0.3s;
+    }
 
-      .sub-container {
-      }
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .content {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding-left: 100px;
-        padding-right: 100px;
-      }
+    .sub-container {}
 
-      .select-language {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      .title h1 {
-  flex: 0 0 40%;
-  max-width: 40%;
-  text-align: center;
-  position: relative;
-  margin-top: 50px;
-  margin-left: 50px;
-}
-      h1::after {
-  content: "";
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  right: 50px;
-  bottom: -20px;
-  border-bottom: 10px solid #ec1839;
-  border-right: 10px solid #ec1839;
-}
-h1::before {
-  content: "";
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  left: 50px;
-  top: -20px;
-  border-top: 10px solid #198754;
-  border-left: 10px solid #198754;
-}
-      /* #sourceLanguageCodeDropdown {
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    .select-language {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .title h1 {
+      flex: 0 0 40%;
+      max-width: 40%;
+      text-align: center;
+      position: relative;
+      margin-top: 50px;
+      margin-left: 50px;
+    }
+
+    h1::after {
+      content: "";
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      right: 50px;
+      bottom: -20px;
+      border-bottom: 10px solid #ec1839;
+      border-right: 10px solid #ec1839;
+    }
+
+    h1::before {
+      content: "";
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      left: 50px;
+      top: -20px;
+      border-top: 10px solid #198754;
+      border-left: 10px solid #198754;
+    }
+
+    /* #sourceLanguageCodeDropdown {
             width: 60px;
             height: 20px;
             margin-left: 10px;
         } */
 
-      .left-side {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-top: 20px;
-      }
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      margin-top: 20px;
+    }
 
-      .right-side {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-top: 51px;
-      }
+    .right-side {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      margin-top: 51px;
+    }
 
-      .group-btn {
-        margin-top: 10px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
+    .group-btn {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
 
-      .btn {
-        width: 100px;
-        height: 30px;
-        margin-right: 10px;
-      }
+    .btn {
+      width: 100px;
+      height: 30px;
+      margin-right: 10px;
+    }
 
-      .textract {
-        margin-top: 20px;
-        margin-left: 55px;
-      }
+    .textract {
+      margin-top: 20px;
+      margin-left: 55px;
+    }
 
-      .textractdocument {
-        margin-top: 20px;
-        margin-left: 55px;
-      }
+    .textractdocument {
+      margin-top: 20px;
+      margin-left: 55px;
+    }
 
-      .translate-document {
-        margin-top: 20px;
-        margin-left: 55px;
-      }
-      body {
-        background: #fff;
-        
-        transition: var(--transition-effect);
-        
-      }
-      body.dark {
-        background: #111;
-        color: white;
-      }
-    
-      #wrapper {
-        height: 100px;
-        width: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
-      #wrapper 
-      #fas1{
-        position: absolute;
-        top :42px;
-        right: 20px;
-      }
-      #wrapper 
-      #fas2{
-        position: absolute;
-        top :42px;
-        right: 60px;
-      }
-      .switch-toggle {
-        width: 90px;
-        height: 50px;
-        appearance: none;
-        background: #83d8ff;
-        border-radius: 26px;
-        position: relative;
-        cursor: pointer;
-        box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.3);
-        transition: var(--transition-effect);
-      }
-      .switch-toggle::before {
-        content: "";
-        width: 44px;
-        height: 44px;
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        background: #efe2bf;
-        border-radius: 50%;
-        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-        transition: var(--transition-effect);
-      }
-      .switch-toggle:checked {
-        background: #749dd6;
-      }
-      .switch-toggle:checked:before {
-        left: 40px;
-      }
-      .mainn{
-        display: flex;
-        margin-bottom: 40px;
-      }
-      .swap {
-  transition: all 0.3s ease;
-  background: #3333;
-}
-.swap:hover {
-  background: #ec1839;
-  transform: scale(1.05);
-}
-.btn {
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  transform: scale(1.05);
-}
-.form-group .clear-btn{
-    position: absolute;
-    right: 820px;
-    top: 285px;
-    width: 35px;
-    height: 35px;
-    background-color: rgb(244, 244, 244);
-    border-radius: 50%;
-    border: none;
-    font-size: 18px;
+    .translate-document {
+      margin-top: 20px;
+      margin-left: 55px;
+    }
 
-    outline: none;
-}
-    </style>
+    body {
+      background: #fff;
 
-    <div class="container">
-      <div class="mainn">
-        <div class="title" style="width: 100%; text-align: center">
-          <h1>TTC TRANSLATE</h1>
-        </div>
-        <div id="wrapper">
-          <input type="checkbox" name="" class="switch-toggle" id="light-dark" />
-          <i class="fas fa-moon" id="fas1"></i>
-          <i class="fas fa-sun" id="fas2"></i>
-        </div>
+      transition: var(--transition-effect);
+
+    }
+
+    body.dark {
+      background: #111;
+      color: white;
+    }
+
+    #wrapper {
+      height: 100px;
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #wrapper #fas1 {
+      position: absolute;
+      top: 42px;
+      right: 20px;
+    }
+
+    #wrapper #fas2 {
+      position: absolute;
+      top: 42px;
+      right: 60px;
+    }
+
+    .switch-toggle {
+      width: 90px;
+      height: 50px;
+      appearance: none;
+      background: #83d8ff;
+      border-radius: 26px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.3);
+      transition: var(--transition-effect);
+    }
+
+    .switch-toggle::before {
+      content: "";
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      background: #efe2bf;
+      border-radius: 50%;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+      transition: var(--transition-effect);
+    }
+
+    .switch-toggle:checked {
+      background: #749dd6;
+    }
+
+    .switch-toggle:checked:before {
+      left: 40px;
+    }
+
+    .mainn {
+      display: flex;
+      margin-bottom: 40px;
+    }
+
+    .swap {
+      transition: all 0.3s ease;
+      background: #3333;
+    }
+
+    .swap:hover {
+      background: #ec1839;
+      transform: scale(1.05);
+    }
+
+    .btn {
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .form-group .clear-btn {
+      position: absolute;
+      right: 820px;
+      top: 285px;
+      width: 35px;
+      height: 35px;
+      background-color: rgb(244, 244, 244);
+      border-radius: 50%;
+      border: none;
+      font-size: 18px;
+
+      outline: none;
+    }
+  </style>
+
+  <div class="container">
+    <div class="mainn">
+      <div class="title" style="width: 100%; text-align: center">
+        <h1>TTC TRANSLATE</h1>
       </div>
-      <div class="sub-container">
-        <div class="content" style="border: 1px solid black;box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);border-radius: 10px;background: #eeeeee95;">
-          <div class="left-side">
-            <div class="select-language">
-              <!-- <p style="line-height: 10px; font-size: 20px">Source Language</p> -->
-              <select
-                class="form-select"
-                id="sourceLanguageCodeDropdown"
-                style="
+      <div id="wrapper">
+        <input type="checkbox" name="" class="switch-toggle" id="light-dark" />
+        <i class="fas fa-moon" id="fas1"></i>
+        <i class="fas fa-sun" id="fas2"></i>
+      </div>
+    </div>
+    <div class="sub-container">
+      <div class="content"
+        style="border: 1px solid black;box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);border-radius: 10px;background: #eeeeee95;">
+        <div class="left-side">
+          <div class="select-language">
+            <!-- <p style="line-height: 10px; font-size: 20px">Source Language</p> -->
+            <select class="form-select" id="sourceLanguageCodeDropdown" style="
                   width: 605px;
                   height: 40px;
                   margin-left: -3px;
                   border: 1px solid black;
-                "
-              >
-                <option value="auto">Auto</option>
-                <option value="af">Afrikaans</option>
-                <option value="sq">Albanian</option>
-                <option value="am">Amharic</option>
-                <option value="ar">Arabic*</option>
-                <option value="hy">Armenian</option>
-                <option value="az">Azerbaijani</option>
-                <option value="bn">Bengali</option>
-                <option value="bs">Bosnian</option>
-                <option value="bg">Bulgarian</option>
-                <option value="ca">Catalan</option>
-                <option value="zh">Chinese (Simplified)*</option>
-                <option value="zh-TW">Chinese (Traditional)</option>
-                <option value="hr">Croatian</option>
-                <option value="cs">Czech</option>
-                <option value="da">Danish*</option>
-                <option value="fa-AF">Dari</option>
-                <option value="nl">Dutch*</option>
-                <option value="en">English*</option>
-                <option value="et">Estonian</option>
-                <option value="fa">Farsi (Persian)</option>
-                <option value="tl">Filipino, Tagalog</option>
-                <option value="fi">Finnish</option>
-                <option value="fr">French*</option>
-                <option value="fr-CA">French (Canada)</option>
-                <option value="ka">Georgian</option>
-                <option value="de">German</option>
-                <option value="el">Greek</option>
-                <option value="gu">Gujarati</option>
-                <option value="ht">Haitian Creole</option>
-                <option value="ha">Hausa</option>
-                <option value="he">Hebrew</option>
-                <option value="hi">Hindi</option>
-                <option value="hu">Hungarian</option>
-                <option value="is">Icelandic</option>
-                <option value="id">Indonesian</option>
-                <option value="ga">Irish</option>
-                <option value="it">Italian</option>
-                <option value="ja">Japanese*</option>
-                <option value="kn">Kannada</option>
-                <option value="kk">Kazakh</option>
-                <option value="ko">Korean*</option>
-                <option value="lv">Latvian</option>
-                <option value="lt">Lithuanian</option>
-                <option value="mk">Macedonian</option>
-                <option value="ms">Malay</option>
-                <option value="ml">Malayalam</option>
-                <option value="mt">Maltese</option>
-                <option value="mr">Marathi</option>
-                <option value="mn">Mongolian</option>
-                <option value="no">Norwegian</option>
-                <option value="ps">Pashto</option>
-                <option value="pl">Polish</option>
-                <option value="pt">Portuguese*</option>
-                <option value="pt-PT">Portuguese (Portugal)</option>
-                <option value="pa">Punjabi</option>
-                <option value="ro">Romanian</option>
-                <option value="ru">Russian*</option>
-                <option value="sr">Serbian</option>
-                <option value="si">Sinhala</option>
-                <option value="sk">Slovak</option>
-                <option value="sl">Slovenian</option>
-                <option value="so">Somali</option>
-                <option value="es">Spanish*</option>
-                <option value="es-MX">Spanish (Mexico)</option>
-                <option value="sw">Swahili</option>
-                <option value="sv">Swedish</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="th">Thai</option>
-                <option value="tr">Turkish</option>
-                <option value="uk">Ukrainian</option>
-                <option value="ur">Urdu</option>
-                <option value="uz">Uzbek</option>
-                <option value="vi">Vietnamese</option>
-                <option value="cy">Welsh</option>
-              </select>
-              <!-- <button
+                ">
+              <option value="auto">Auto</option>
+              <option value="af">Afrikaans</option>
+              <option value="sq">Albanian</option>
+              <option value="am">Amharic</option>
+              <option value="ar">Arabic*</option>
+              <option value="hy">Armenian</option>
+              <option value="az">Azerbaijani</option>
+              <option value="bn">Bengali</option>
+              <option value="bs">Bosnian</option>
+              <option value="bg">Bulgarian</option>
+              <option value="ca">Catalan</option>
+              <option value="zh">Chinese (Simplified)*</option>
+              <option value="zh-TW">Chinese (Traditional)</option>
+              <option value="hr">Croatian</option>
+              <option value="cs">Czech</option>
+              <option value="da">Danish*</option>
+              <option value="fa-AF">Dari</option>
+              <option value="nl">Dutch*</option>
+              <option value="en">English*</option>
+              <option value="et">Estonian</option>
+              <option value="fa">Farsi (Persian)</option>
+              <option value="tl">Filipino, Tagalog</option>
+              <option value="fi">Finnish</option>
+              <option value="fr">French*</option>
+              <option value="fr-CA">French (Canada)</option>
+              <option value="ka">Georgian</option>
+              <option value="de">German</option>
+              <option value="el">Greek</option>
+              <option value="gu">Gujarati</option>
+              <option value="ht">Haitian Creole</option>
+              <option value="ha">Hausa</option>
+              <option value="he">Hebrew</option>
+              <option value="hi">Hindi</option>
+              <option value="hu">Hungarian</option>
+              <option value="is">Icelandic</option>
+              <option value="id">Indonesian</option>
+              <option value="ga">Irish</option>
+              <option value="it">Italian</option>
+              <option value="ja">Japanese*</option>
+              <option value="kn">Kannada</option>
+              <option value="kk">Kazakh</option>
+              <option value="ko">Korean*</option>
+              <option value="lv">Latvian</option>
+              <option value="lt">Lithuanian</option>
+              <option value="mk">Macedonian</option>
+              <option value="ms">Malay</option>
+              <option value="ml">Malayalam</option>
+              <option value="mt">Maltese</option>
+              <option value="mr">Marathi</option>
+              <option value="mn">Mongolian</option>
+              <option value="no">Norwegian</option>
+              <option value="ps">Pashto</option>
+              <option value="pl">Polish</option>
+              <option value="pt">Portuguese*</option>
+              <option value="pt-PT">Portuguese (Portugal)</option>
+              <option value="pa">Punjabi</option>
+              <option value="ro">Romanian</option>
+              <option value="ru">Russian*</option>
+              <option value="sr">Serbian</option>
+              <option value="si">Sinhala</option>
+              <option value="sk">Slovak</option>
+              <option value="sl">Slovenian</option>
+              <option value="so">Somali</option>
+              <option value="es">Spanish*</option>
+              <option value="es-MX">Spanish (Mexico)</option>
+              <option value="sw">Swahili</option>
+              <option value="sv">Swedish</option>
+              <option value="ta">Tamil</option>
+              <option value="te">Telugu</option>
+              <option value="th">Thai</option>
+              <option value="tr">Turkish</option>
+              <option value="uk">Ukrainian</option>
+              <option value="ur">Urdu</option>
+              <option value="uz">Uzbek</option>
+              <option value="vi">Vietnamese</option>
+              <option value="cy">Welsh</option>
+            </select>
+            <!-- <button
                 class="btn btn-success"
                 onclick="doTranslate()"
                 style="
@@ -350,242 +350,174 @@ h1::before {
               >
                 TRANSLATE
               </button> -->
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea3"></label>
-              <textarea
-                oninput="doTranslate()"
-                class="form-control"
-                id="convert"
-                name="convert"
-                rows="7"
-                style="width: 600px; border: 1px solid black"
-                placeholder="Nhập chữ vào đây"
-              ></textarea>
-              <button
-                class="clear-btn btn"
-                onclick="clearInputs()"
-                style="background: #3333; line-height: 15px; color: white;"
-              >
-              <i class="fa-solid fa-xmark"></i>
-            </div>
-
-            <div class="group-btn">
-              <button
-                class="poly-btn btn"
-                onclick="doSynthesizeInput()"
-                style="background: #198754; line-height: 15px; color: white"
-              >
-                <i class="fa fa-volume-up text-light"></i>
-              </button>
-             
-
-              <button
-                class="download-btn btn"
-                style="background: #198754; line-height: 15px; color: white"
-              >
-                <i class="fa fa-download" onclick="Export2Word()"></i>
-              </button>
-              <button
-                id="click_to_covert"
-                class="microphone-btn btn"
-                style="background: #198754; line-height: 15px; color: white"
-                onclick="voice()"
-              >
-                <i class="fa fa-microphone" onclick=""></i>
-              </button>
-            </div>
           </div>
-          <div class="swap" style="border-radius: 10px">
-            <button
-              class="swap"
-              onclick="swapText()"
-              style="
+          <div class="form-group">
+            <label for="exampleFormControlTextarea3"></label>
+            <textarea oninput="doTranslate()" class="form-control" id="convert" name="convert" rows="7"
+              style="width: 600px; border: 1px solid black" placeholder="Nhập chữ vào đây"></textarea>
+            <button class="clear-btn btn" onclick="clearInputs()"
+              style="background: #3333; line-height: 15px; color: white;">
+              <i class="fa-solid fa-xmark"></i>
+          </div>
+
+          <div class="group-btn">
+            <button class="poly-btn btn" onclick="doSynthesizeInput()"
+              style="background: #198754; line-height: 15px; color: white">
+              <i class="fa fa-volume-up text-light"></i>
+            </button>
+
+
+            <button class="download-btn btn" style="background: #198754; line-height: 15px; color: white">
+              <i class="fa fa-download" onclick="Export2Word()"></i>
+            </button>
+            <button id="click_to_covert" class="microphone-btn btn"
+              style="background: #198754; line-height: 15px; color: white" onclick="voice()">
+              <i class="fa fa-microphone" onclick=""></i>
+            </button>
+          </div>
+        </div>
+        <div class="swap" style="border-radius: 10px">
+          <button class="swap" onclick="swapText()" style="
                 border-radius: 10px;
                 border: none;
                 height: 40px;
                 width: 70px;
                 color: white;
-              "
-            >
+              ">
             <i class="fas fa-retweet"></i>
-            </button>
+          </button>
+        </div>
+        <div class="right-side">
+          <div class="select-language">
+            <!-- <p>Target Language Code:</p> -->
+            <select class="form-select" id="targetLanguageCodeDropdown" style="border: 1px solid black">
+              <option value="af">Afrikaans</option>
+              <option value="sq">Albanian</option>
+              <option value="am">Amharic</option>
+              <option value="ar">Arabic*</option>
+              <option value="hy">Armenian</option>
+              <option value="az">Azerbaijani</option>
+              <option value="bn">Bengali</option>
+              <option value="bs">Bosnian</option>
+              <option value="bg">Bulgarian</option>
+              <option value="ca">Catalan</option>
+              <option value="zh">Chinese (Simplified)*</option>
+              <option value="zh-TW">Chinese (Traditional)</option>
+              <option value="hr">Croatian</option>
+              <option value="cs">Czech</option>
+              <option value="da">Danish*</option>
+              <option value="fa-AF">Dari</option>
+              <option value="nl">Dutch*</option>
+              <option value="en">English*</option>
+              <option value="et">Estonian</option>
+              <option value="fa">Farsi (Persian)</option>
+              <option value="tl">Filipino, Tagalog</option>
+              <option value="fi">Finnish</option>
+              <option value="fr">French*</option>
+              <option value="fr-CA">French (Canada)</option>
+              <option value="ka">Georgian</option>
+              <option value="de">German</option>
+              <option value="el">Greek</option>
+              <option value="gu">Gujarati</option>
+              <option value="ht">Haitian Creole</option>
+              <option value="ha">Hausa</option>
+              <option value="he">Hebrew</option>
+              <option value="hi">Hindi</option>
+              <option value="hu">Hungarian</option>
+              <option value="is">Icelandic</option>
+              <option value="id">Indonesian</option>
+              <option value="ga">Irish</option>
+              <option value="it">Italian</option>
+              <option value="ja">Japanese*</option>
+              <option value="kn">Kannada</option>
+              <option value="kk">Kazakh</option>
+              <option value="ko">Korean*</option>
+              <option value="lv">Latvian</option>
+              <option value="lt">Lithuanian</option>
+              <option value="mk">Macedonian</option>
+              <option value="ms">Malay</option>
+              <option value="ml">Malayalam</option>
+              <option value="mt">Maltese</option>
+              <option value="mr">Marathi</option>
+              <option value="mn">Mongolian</option>
+              <option value="no">Norwegian</option>
+              <option value="ps">Pashto</option>
+              <option value="pl">Polish</option>
+              <option value="pt">Portuguese*</option>
+              <option value="pt-PT">Portuguese (Portugal)</option>
+              <option value="pa">Punjabi</option>
+              <option value="ro">Romanian</option>
+              <option value="ru">Russian*</option>
+              <option value="sr">Serbian</option>
+              <option value="si">Sinhala</option>
+              <option value="sk">Slovak</option>
+              <option value="sl">Slovenian</option>
+              <option value="so">Somali</option>
+              <option value="es">Spanish*</option>
+              <option value="es-MX">Spanish (Mexico)</option>
+              <option value="sw">Swahili</option>
+              <option value="sv">Swedish</option>
+              <option value="ta">Tamil</option>
+              <option value="te">Telugu</option>
+              <option value="th">Thai</option>
+              <option value="tr">Turkish</option>
+              <option value="uk">Ukrainian</option>
+              <option value="ur">Urdu</option>
+              <option value="uz">Uzbek</option>
+              <option value="vi">Vietnamese</option>
+              <option value="cy">Welsh</option>
+            </select>
           </div>
-          <div class="right-side">
-            <div class="select-language">
-              <!-- <p>Target Language Code:</p> -->
-              <select
-                class="form-select"
-                id="targetLanguageCodeDropdown"
-                style="border: 1px solid black"
-              >
-                <option value="af">Afrikaans</option>
-                <option value="sq">Albanian</option>
-                <option value="am">Amharic</option>
-                <option value="ar">Arabic*</option>
-                <option value="hy">Armenian</option>
-                <option value="az">Azerbaijani</option>
-                <option value="bn">Bengali</option>
-                <option value="bs">Bosnian</option>
-                <option value="bg">Bulgarian</option>
-                <option value="ca">Catalan</option>
-                <option value="zh">Chinese (Simplified)*</option>
-                <option value="zh-TW">Chinese (Traditional)</option>
-                <option value="hr">Croatian</option>
-                <option value="cs">Czech</option>
-                <option value="da">Danish*</option>
-                <option value="fa-AF">Dari</option>
-                <option value="nl">Dutch*</option>
-                <option value="en">English*</option>
-                <option value="et">Estonian</option>
-                <option value="fa">Farsi (Persian)</option>
-                <option value="tl">Filipino, Tagalog</option>
-                <option value="fi">Finnish</option>
-                <option value="fr">French*</option>
-                <option value="fr-CA">French (Canada)</option>
-                <option value="ka">Georgian</option>
-                <option value="de">German</option>
-                <option value="el">Greek</option>
-                <option value="gu">Gujarati</option>
-                <option value="ht">Haitian Creole</option>
-                <option value="ha">Hausa</option>
-                <option value="he">Hebrew</option>
-                <option value="hi">Hindi</option>
-                <option value="hu">Hungarian</option>
-                <option value="is">Icelandic</option>
-                <option value="id">Indonesian</option>
-                <option value="ga">Irish</option>
-                <option value="it">Italian</option>
-                <option value="ja">Japanese*</option>
-                <option value="kn">Kannada</option>
-                <option value="kk">Kazakh</option>
-                <option value="ko">Korean*</option>
-                <option value="lv">Latvian</option>
-                <option value="lt">Lithuanian</option>
-                <option value="mk">Macedonian</option>
-                <option value="ms">Malay</option>
-                <option value="ml">Malayalam</option>
-                <option value="mt">Maltese</option>
-                <option value="mr">Marathi</option>
-                <option value="mn">Mongolian</option>
-                <option value="no">Norwegian</option>
-                <option value="ps">Pashto</option>
-                <option value="pl">Polish</option>
-                <option value="pt">Portuguese*</option>
-                <option value="pt-PT">Portuguese (Portugal)</option>
-                <option value="pa">Punjabi</option>
-                <option value="ro">Romanian</option>
-                <option value="ru">Russian*</option>
-                <option value="sr">Serbian</option>
-                <option value="si">Sinhala</option>
-                <option value="sk">Slovak</option>
-                <option value="sl">Slovenian</option>
-                <option value="so">Somali</option>
-                <option value="es">Spanish*</option>
-                <option value="es-MX">Spanish (Mexico)</option>
-                <option value="sw">Swahili</option>
-                <option value="sv">Swedish</option>
-                <option value="ta">Tamil</option>
-                <option value="te">Telugu</option>
-                <option value="th">Thai</option>
-                <option value="tr">Turkish</option>
-                <option value="uk">Ukrainian</option>
-                <option value="ur">Urdu</option>
-                <option value="uz">Uzbek</option>
-                <option value="vi">Vietnamese</option>
-                <option value="cy">Welsh</option>
-              </select>
-            </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlTextarea3"></label>
-              <textarea
-                class="form-control"
-                id="outputText"
-                name="outputText"
-                rows="7"
-                style="width: 600px; border: 1px solid black"
-              ></textarea>
-            </div>
-            <div class="group-btn" style="display: flex">
-              <button
-                class="poly-btn btn"
-                onclick="doSynthesizeOutput()"
-                style="
+          <div class="form-group">
+            <label for="exampleFormControlTextarea3"></label>
+            <textarea class="form-control" id="outputText" name="outputText" rows="7"
+              style="width: 600px; border: 1px solid black"></textarea>
+          </div>
+          <div class="group-btn" style="display: flex">
+            <button class="poly-btn btn" onclick="doSynthesizeOutput()" style="
                   color: white;
                   background: #ec1839;
                   line-height: 10px;
                   margin-top: -35px;
-                "
-              >
-                <i class="fa fa-volume-up text-light"></i>
-              </button>
-              <button
-                class="download-btn btn"
-                style="
+                ">
+              <i class="fa fa-volume-up text-light"></i>
+            </button>
+            <button id="downloadselect" class="download-btn btn" style="
                   background: #ec1839;
                   line-height: 10px;
                   margin-top: -35px;
-                "
-              >
-                <i
-                  class="fa fa-download"
-                  onclick="Export2Word1()"
-                  style="color: white"
-                ></i>
-              </button>
-              <div class="btncoppy">
-                <button
-                  style="
+                ">
+              <i class="fa fa-download" style="color: white"></i>
+            </button>
+            <div class="btncoppy">
+              <button style="
                     border-radius: 5px;
                     background: #ec1839;
                     border: none;
                     color: white;
                     height: 30px;
                     width: 100px;
-                  "
-                >
-                  <i class="fas fa-copy"></i></button
-                ><span class="tooltip" style="color: black">copied</span>
-              </div>
+                  ">
+                <i class="fas fa-copy"></i></button><span class="tooltip" style="color: black">copied</span>
             </div>
+
           </div>
         </div>
       </div>
-      <div class="filee" style="display: flex;">
-      <div
-        class="textract"
-        style="
+    </div>
+    <div class="filee" style="display: flex;">
+      <div class="textract" style="
           border: 1px solid black;
           padding: 20px;
           width: 500px;
           border-radius: 10px;
           border: 1px solid #c0c0c0;
-        "
-      >
+        ">
         <!-- <p>Textract image</p> -->
-        <form
-          method="POST"
-          ,
-          action="/extracttext"
-          ,
-          enctype="multipart/form-data"
-          class="main__menu--tool-form1"
-        >
-          <input
-            style="color: black;"
-            type="file"
-            ,
-            name="filename"
-            ,
-            id="filename"
-            class="filebutton"
-          />
-          <button
-            type="submit"
-            class="btn btn-primary"
-            style="line-height: 15px; width: 50px"
-          >
+        <form method="POST" , action="/extracttext" , enctype="multipart/form-data" class="main__menu--tool-form1">
+          <input style="color: black;" type="file" , name="filename" , id="filename" class="filebutton" />
+          <button type="submit" class="btn btn-primary" style="line-height: 15px; width: 50px">
             <i class="fas fa-image"></i>
           </button>
           <!-- <button
@@ -598,71 +530,78 @@ h1::before {
         </form>
       </div>
 
-      <div
-        style="
+      <div style="
           display: flex;
           border: 1px solid black;
           padding: 20px;
           width: 500px;
           border-radius: 10px;
           border: 1px solid #c0c0c0;
-        "
-        class="textractdocument"
-      >
+        " class="textractdocument">
         <!-- <p>Textract document</p> -->
-        <form
-          method="POST"
-          ,
-          action="/documentTranslate"
-          ,
-          enctype="multipart/form-data"
-          class="main__menu--tool-form1"
-          
-        >
-          <input
-            style="color: black"
-            type="file"
-            ,
-            name="filenameDocument"
-            ,
-            id="filenameDocument"
-            class="filebutton"
-            style="border-radius: 5px; margin-right: -100px"
-          />
+        <form method="POST" , action="/documentTranslate" , enctype="multipart/form-data"
+          class="main__menu--tool-form1">
+          <input style="color: black" type="file" , name="filenameDocument" , id="filenameDocument" class="filebutton"
+            style="border-radius: 5px; margin-right: -100px" />
           <!--                <button class="btn btn-success" onclick="Export2Word();">DOWNLOAD FILE</button>-->
         </form>
 
-        <button
-          class="btn upload-btn"
-          id="upload"
-          onclick="loadFileAsDoucument()"
-          style="
+        <button class="btn upload-btn" id="upload" onclick="loadFileAsDoucument()" style="
             background: #0d6efd;
             line-height: 10px;
             color: white;
             width: 50px;
-          "
-        >
+          ">
           <i class="fas fa-file"></i>
         </button>
-       
+
       </div>
-      </div>
-     
-      <!-- <button id="uploaddocument" class="btn btn-primary" onclick="loadFileAsDoucument()">EXTRACT</button> -->
     </div>
-    <script>
-      var checkbox_toggle = document.getElementById("light-dark");
-      checkbox_toggle.addEventListener("change", function () {
-        // THêm class dark cho body
-        document.body.classList.toggle("dark");
-      });
-    </script>
-    <!-- <script type="text/javascript" src="app.js"></script> -->
-    <script type="text/javascript">
-      function voice() {
-        var noi = document.getElementById("click_to_covert");
-        var convert2 = document.getElementById("convert");
+
+    <!-- <button id="uploaddocument" class="btn btn-primary" onclick="loadFileAsDoucument()">EXTRACT</button> -->
+  </div>
+
+
+
+  <div class="wrapper">
+
+    <div class="file-options">
+      <div class="option file-name">
+        <label>File name</label>
+        <input type="text" spellcheck="false" placeholder="Enter file name">
+      </div>
+      <div class="option save-as">
+        <label>Save as</label>
+        <div class="select-menu">
+          <select>
+            <option value="text/plain">Text File (.txt)</option>
+            <option value="text/javascript">JS File (.js)</option>
+            <option value="text/html">HTML File (.html)</option>
+            <option value="image/svg+xml">SVG File (.svg)</option>
+            <option value="application/msword">Doc File (.doc)</option>
+            <option value="application/vnd.ms-powerpoint">PPT File (.ppt)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+    var checkbox_toggle = document.getElementById("light-dark");
+    checkbox_toggle.addEventListener("change", function () {
+      // THêm class dark cho body
+      document.body.classList.toggle("dark");
+    });
+  </script>
+  <!-- <script type="text/javascript" src="app.js"></script> -->
+  <script type="text/javascript">
+    function voice() {
+      var noi = document.getElementById("click_to_covert");
+      var convert2 = document.getElementById("convert");
       noi.addEventListener("click", function () {
         console.log("1");
         var speech = true;
@@ -675,314 +614,335 @@ h1::before {
             .map((result) => result.transcript);
           convert2.value = transcript;
         });
-        
+
         if (speech == true) {
-         
+
           recognition.start();
         }
       });
-      }
-    </script>
-    </script>
-    <script>
-      // set the focus to the input box
-      document.getElementById("convert").focus();
+    }
+  </script>
+  </script>
+  <script>
+    // set the focus to the input box
+    document.getElementById("convert").focus();
 
-      AWS.config.region = "us-east-1"; // Region
-      AWS.config.credentials = new AWS.Credentials(
-        "AKIAUTP2CT7AAYERIVHJ",
-        "Ao4B8MS7KUu0lVWHaAR7n4/VAZJVItwkAn1v4tXA"
+    AWS.config.region = "us-east-1"; // Region
+    AWS.config.credentials = new AWS.Credentials(
+      "AKIAUTP2CT7AAYERIVHJ",
+      "Ao4B8MS7KUu0lVWHaAR7n4/VAZJVItwkAn1v4tXA"
+    );
+
+    var translate = new AWS.Translate({ region: AWS.config.region });
+    var polly = new AWS.Polly();
+    var s3 = new AWS.S3();
+
+    document.getElementById("dload").onclick = function () {
+      var l = document.createElement("a");
+      l.href =
+        "data:text/plain;charset=UTF-8," +
+        document.getElementById("outputText").value;
+      l.setAttribute(
+        "output_download",
+        document.getElementById("dload-fn").value
       );
+      l.click();
+    };
 
-      var translate = new AWS.Translate({ region: AWS.config.region });
-      var polly = new AWS.Polly();
-      var s3 = new AWS.S3();
+    function Export2Word(filename = "") {
+      var preHtml =
+        "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      var postHtml = "</body></html>";
+      var html =
+        preHtml + document.getElementById("convert").value + postHtml;
 
-      document.getElementById("dload").onclick = function () {
-        var l = document.createElement("a");
-        l.href =
-          "data:text/plain;charset=UTF-8," +
-          document.getElementById("outputText").value;
-        l.setAttribute(
-          "output_download",
-          document.getElementById("dload-fn").value
-        );
-        l.click();
+      var blob = new Blob(["\ufeff", html], {
+        type: "application/msword",
+      });
+      var url =
+        "data:application/vnd.ms-word;charset=utf-8," +
+        encodeURIComponent(html);
+      filename = filename ? filename + ".doc" : "Translate_Input.doc";
+      var downloadLink = document.createElement("a");
+      document.body.appendChild(downloadLink);
+      if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        downloadLink.click();
+      }
+      document.body.removeChild(downloadLink);
+    }
+
+    function Export2Word1(filename = "") {
+      var preHtml =
+        "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      var postHtml = "</body></html>";
+      var html =
+        preHtml + document.getElementById("outputText").value + postHtml;
+
+      var blob = new Blob(["\ufeff", html], {
+        type: "application/msword",
+      });
+      var url =
+        "data:application/vnd.ms-word;charset=utf-8," +
+        encodeURIComponent(html);
+      filename = filename ? filename + ".doc" : "Translate_Output.doc";
+      var downloadLink = document.createElement("a");
+      document.body.appendChild(downloadLink);
+      if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        downloadLink.click();
+      }
+      document.body.removeChild(downloadLink);
+    }
+    function loadFileAsText() {
+      var fileToLoad = document.getElementById("filename").files[0];
+
+      var fileReader = new FileReader();
+      fileReader.onload = function (fileLoadedEvent) {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("convert").value = textFromFileLoaded;
       };
+      fileReader.readAsText(fileToLoad, "UTF-8");
+    }
 
-      function Export2Word(filename = "") {
-        var preHtml =
-          "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-        var postHtml = "</body></html>";
-        var html =
-          preHtml + document.getElementById("convert").value + postHtml;
-
-        var blob = new Blob(["\ufeff", html], {
-          type: "application/msword",
-        });
-        var url =
-          "data:application/vnd.ms-word;charset=utf-8," +
-          encodeURIComponent(html);
-        filename = filename ? filename + ".doc" : "Translate_Input.doc";
-        var downloadLink = document.createElement("a");
-        document.body.appendChild(downloadLink);
-        if (navigator.msSaveOrOpenBlob) {
-          navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-          downloadLink.href = url;
-          downloadLink.download = filename;
-          downloadLink.click();
-        }
-        document.body.removeChild(downloadLink);
+    document.getElementById("convert").onkeypress = function (e) {
+      if (e.keyCode == 13) {
+        document.getElementById("translate").click();
       }
+    };
+    function loadFileAsDoucument() {
+      var fileToLoad = document.getElementById("filenameDocument").files[0];
 
-      function Export2Word1(filename = "") {
-        var preHtml =
-          "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-        var postHtml = "</body></html>";
-        var html =
-          preHtml + document.getElementById("outputText").value + postHtml;
-
-        var blob = new Blob(["\ufeff", html], {
-          type: "application/msword",
-        });
-        var url =
-          "data:application/vnd.ms-word;charset=utf-8," +
-          encodeURIComponent(html);
-        filename = filename ? filename + ".doc" : "Translate_Output.doc";
-        var downloadLink = document.createElement("a");
-        document.body.appendChild(downloadLink);
-        if (navigator.msSaveOrOpenBlob) {
-          navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-          downloadLink.href = url;
-          downloadLink.download = filename;
-          downloadLink.click();
-        }
-        document.body.removeChild(downloadLink);
-      }
-      function loadFileAsText() {
-        var fileToLoad = document.getElementById("filename").files[0];
-
-        var fileReader = new FileReader();
-        fileReader.onload = function (fileLoadedEvent) {
-          var textFromFileLoaded = fileLoadedEvent.target.result;
-          document.getElementById("convert").value = textFromFileLoaded;
-        };
-        fileReader.readAsText(fileToLoad, "UTF-8");
-      }
-
-      document.getElementById("convert").onkeypress = function (e) {
-        if (e.keyCode == 13) {
-          document.getElementById("translate").click();
-        }
+      var fileReader = new FileReader();
+      fileReader.onload = function (fileLoadedEvent) {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("convert").value = textFromFileLoaded;
       };
-      function loadFileAsDoucument() {
-        var fileToLoad = document.getElementById("filenameDocument").files[0];
+      fileReader.readAsText(fileToLoad, "UTF-8");
+    }
 
-        var fileReader = new FileReader();
-        fileReader.onload = function (fileLoadedEvent) {
-          var textFromFileLoaded = fileLoadedEvent.target.result;
-          document.getElementById("convert").value = textFromFileLoaded;
-        };
-        fileReader.readAsText(fileToLoad, "UTF-8");
+    document.getElementById("convert").onkeypress = function (e) {
+      if (e.keyCode == 13) {
+        document.getElementById("translate").click();
+      }
+    };
+
+    function doTranslate() {
+      var inputText = document.getElementById("convert").value;
+      if (!inputText) {
+        // alert("Vui lòng nhập văn bản bạn muốn dịch");
+        exit();
       }
 
-      document.getElementById("convert").onkeypress = function (e) {
-        if (e.keyCode == 13) {
-          document.getElementById("translate").click();
-        }
+      // get the language codes
+      var sourceDropdown = document.getElementById(
+        "sourceLanguageCodeDropdown"
+      );
+      var sourceLanguageCode =
+        sourceDropdown.options[sourceDropdown.selectedIndex].value;
+
+      var targetDropdown = document.getElementById(
+        "targetLanguageCodeDropdown"
+      );
+      var targetLanguageCode =
+        targetDropdown.options[targetDropdown.selectedIndex].value;
+
+      // var params = {
+
+      //     Text: inputText,
+      //     SourceLanguageCode: 'vi',
+      //     TargetLanguageCode: 'ja'
+      // };
+
+      var params = {
+        Text: inputText,
+        SourceLanguageCode: sourceLanguageCode,
+        TargetLanguageCode: targetLanguageCode,
       };
-
-      function doTranslate() {
-        var inputText = document.getElementById("convert").value;
-        if (!inputText) {
-          // alert("Vui lòng nhập văn bản bạn muốn dịch");
-          exit();
-        }
-
-        // get the language codes
-        var sourceDropdown = document.getElementById(
-          "sourceLanguageCodeDropdown"
-        );
-        var sourceLanguageCode =
-          sourceDropdown.options[sourceDropdown.selectedIndex].value;
-
-        var targetDropdown = document.getElementById(
-          "targetLanguageCodeDropdown"
-        );
-        var targetLanguageCode =
-          targetDropdown.options[targetDropdown.selectedIndex].value;
-
-        // var params = {
-
-        //     Text: inputText,
-        //     SourceLanguageCode: 'vi',
-        //     TargetLanguageCode: 'ja'
-        // };
-
-        var params = {
-          Text: inputText,
-          SourceLanguageCode: sourceLanguageCode,
-          TargetLanguageCode: targetLanguageCode,
-        };
-        translate.translateText(params, function (err, data) {
-          if (err) {
-            console.log(err, err.stack);
-            alert("Error calling Amazon Translate. " + err.message);
-            return;
-          }
-          if (data) {
-            var outputTextArea = document.getElementById("outputText");
-            outputTextArea.value = data.TranslatedText;
-          }
-        });
-      }
-
-      function doSynthesizeInput() {
-        var text = document.getElementById("convert").value.trim();
-        if (!text) {
+      translate.translateText(params, function (err, data) {
+        if (err) {
+          console.log(err, err.stack);
+          alert("Error calling Amazon Translate. " + err.message);
           return;
         }
-        var sourceLanguageCode = document.getElementById(
-          "sourceLanguageCodeDropdown"
-        ).value;
-        doSynthesize(text, sourceLanguageCode);
-      }
-
-      function doSynthesizeOutput() {
-        var text = document.getElementById("outputText").value.trim();
-        if (!text) {
-          return;
-        }
-        var targetLanguageCode = document.getElementById(
-          "targetLanguageCodeDropdown"
-        ).value;
-        doSynthesize(text, targetLanguageCode);
-      }
-
-      function doSynthesize(text, languageCode) {
-        var voiceId;
-        switch (languageCode) {
-          case "ar":
-            voiceId = "Zeina";
-            break;
-          case "da":
-            voiceId = "Mads";
-            break;
-          case "nl":
-            voiceId = "Ruben";
-            break;
-          case "de":
-            voiceId = "Marlene";
-            break;
-          case "zh":
-            voiceId = "Zhiyu";
-            break;
-          case "en":
-            voiceId = "Joanna";
-            break;
-          case "es":
-            voiceId = "Penelope";
-            break;
-          case "fr":
-            voiceId = "Celine";
-            break;
-          case "pt":
-            voiceId = "Vitoria";
-            break;
-          case "ja":
-            voiceId = "Takumi";
-            break;
-          case "ko":
-            voiceId = "Seoyeon";
-            break;
-          case "ru":
-            voiceId = "Maxim";
-            break;
-          default:
-            voiceId = null;
-            break;
-        }
-        if (!voiceId) {
-          alert(
-            'Hiện tại chưa hỗ trợ giọng nói cho ngôn ngữ "' + languageCode + '"'
-          );
-          return;
-        }
-        var params = {
-          OutputFormat: "mp3",
-          SampleRate: "8000",
-          Text: text,
-          TextType: "text",
-          VoiceId: voiceId,
-        };
-        polly.synthesizeSpeech(params, function (err, data) {
-          if (err) {
-            console.log(err, err.stack); // an error occurred
-            alert("Error calling Amazon Polly. " + err.message);
-          } else {
-            var uInt8Array = new Uint8Array(data.AudioStream);
-            var arrayBuffer = uInt8Array.buffer;
-            var blob = new Blob([arrayBuffer]);
-            var url = URL.createObjectURL(blob);
-
-            audioElement = new Audio([url]);
-            audioElement.play();
-          }
-        });
-      }
-
-      function clearInputs() {
-        document.getElementById("convert").value = "";
-        document.getElementById("outputText").value = "";
-        // document.getElementById("sourceLanguageCodeDropdown").value = "auto";
-        // document.getElementById("targetLanguageCodeDropdown").value = "auto";
-        document.getElementById("filename").value = "";
-        document.getElementById("filenameDocument").value = "";
-      }
-      function swapText() {
-        let inputText = document.getElementById("convert").value;
-        let outputText = document.getElementById("outputText").value;
-        document.getElementById("convert").value = outputText;
-        document.getElementById("outputText").value = inputText;
-
-        let source = document.getElementById(
-          "sourceLanguageCodeDropdown"
-        ).value;
-        let target = document.getElementById(
-          "targetLanguageCodeDropdown"
-        ).value;
-        document.getElementById("sourceLanguageCodeDropdown").value = target;
-        document.getElementById("targetLanguageCodeDropdown").value = source;
-      }
-    </script>
-    <p hidden id="data_extract">{{jsonData}}</p>
-    <script>
-      let data = document.getElementById("data_extract").innerHTML;
-      let dataFromApi = JSON.parse(data);
-      let value = dataFromApi.text;
-      console.log("value json test=", data);
-      document.getElementById("convert").value = value;
-    </script>
-    <script>
-      const inputText = document.querySelector("#convert");
-      const outputText = document.querySelector("#outputText");
-      const button = document.querySelector(".btncoppy");
-      const tooltip = document.querySelector(".tooltip");
-      button.addEventListener("click", function () {
-        outputText.select();
-        // outputText.value = "";
-        tooltip.classList.add("show");
-        setTimeout(function () {
-          tooltip.classList.remove("show");
-        }, 700);
-        if (document.execCommand("copy")) {
-          inputText.focus();
-        } else {
-          alert("Xảy ra lỗi");
+        if (data) {
+          var outputTextArea = document.getElementById("outputText");
+          outputTextArea.value = data.TranslatedText;
         }
       });
-    </script>
-  </body>
+    }
+
+    function doSynthesizeInput() {
+      var text = document.getElementById("convert").value.trim();
+      if (!text) {
+        return;
+      }
+      var sourceLanguageCode = document.getElementById(
+        "sourceLanguageCodeDropdown"
+      ).value;
+      doSynthesize(text, sourceLanguageCode);
+    }
+
+    function doSynthesizeOutput() {
+      var text = document.getElementById("outputText").value.trim();
+      if (!text) {
+        return;
+      }
+      var targetLanguageCode = document.getElementById(
+        "targetLanguageCodeDropdown"
+      ).value;
+      doSynthesize(text, targetLanguageCode);
+    }
+
+    function doSynthesize(text, languageCode) {
+      var voiceId;
+      switch (languageCode) {
+        case "ar":
+          voiceId = "Zeina";
+          break;
+        case "da":
+          voiceId = "Mads";
+          break;
+        case "nl":
+          voiceId = "Ruben";
+          break;
+        case "de":
+          voiceId = "Marlene";
+          break;
+        case "zh":
+          voiceId = "Zhiyu";
+          break;
+        case "en":
+          voiceId = "Joanna";
+          break;
+        case "es":
+          voiceId = "Penelope";
+          break;
+        case "fr":
+          voiceId = "Celine";
+          break;
+        case "pt":
+          voiceId = "Vitoria";
+          break;
+        case "ja":
+          voiceId = "Takumi";
+          break;
+        case "ko":
+          voiceId = "Seoyeon";
+          break;
+        case "ru":
+          voiceId = "Maxim";
+          break;
+        default:
+          voiceId = null;
+          break;
+      }
+      if (!voiceId) {
+        alert(
+          'Hiện tại chưa hỗ trợ giọng nói cho ngôn ngữ "' + languageCode + '"'
+        );
+        return;
+      }
+      var params = {
+        OutputFormat: "mp3",
+        SampleRate: "8000",
+        Text: text,
+        TextType: "text",
+        VoiceId: voiceId,
+      };
+      polly.synthesizeSpeech(params, function (err, data) {
+        if (err) {
+          console.log(err, err.stack); // an error occurred
+          alert("Error calling Amazon Polly. " + err.message);
+        } else {
+          var uInt8Array = new Uint8Array(data.AudioStream);
+          var arrayBuffer = uInt8Array.buffer;
+          var blob = new Blob([arrayBuffer]);
+          var url = URL.createObjectURL(blob);
+
+          audioElement = new Audio([url]);
+          audioElement.play();
+        }
+      });
+    }
+
+    function clearInputs() {
+      document.getElementById("convert").value = "";
+      document.getElementById("outputText").value = "";
+      // document.getElementById("sourceLanguageCodeDropdown").value = "auto";
+      // document.getElementById("targetLanguageCodeDropdown").value = "auto";
+      document.getElementById("filename").value = "";
+      document.getElementById("filenameDocument").value = "";
+    }
+    function swapText() {
+      let inputText = document.getElementById("convert").value;
+      let outputText = document.getElementById("outputText").value;
+      document.getElementById("convert").value = outputText;
+      document.getElementById("outputText").value = inputText;
+
+      let source = document.getElementById(
+        "sourceLanguageCodeDropdown"
+      ).value;
+      let target = document.getElementById(
+        "targetLanguageCodeDropdown"
+      ).value;
+      document.getElementById("sourceLanguageCodeDropdown").value = target;
+      document.getElementById("targetLanguageCodeDropdown").value = source;
+    }
+  </script>
+  <p hidden id="data_extract">{{jsonData}}</p>
+  <script>
+    let data = document.getElementById("data_extract").innerHTML;
+    let dataFromApi = JSON.parse(data);
+    let value = dataFromApi.text;
+    console.log("value json test=", data);
+    document.getElementById("convert").value = value;
+  </script>
+  <script>
+    const inputText = document.querySelector("#convert");
+    const outputText = document.querySelector("#outputText");
+    const button = document.querySelector(".btncoppy");
+    const tooltip = document.querySelector(".tooltip");
+    button.addEventListener("click", function () {
+      outputText.select();
+      // outputText.value = "";
+      tooltip.classList.add("show");
+      setTimeout(function () {
+        tooltip.classList.remove("show");
+      }, 700);
+      if (document.execCommand("copy")) {
+        inputText.focus();
+      } else {
+        alert("Xảy ra lỗi");
+      }
+    });
+  </script>
+  <script>
+    const textarea = document.getElementById("outputText"),
+      fileNameInput = document.querySelector(".file-name input"),
+      selectMenu = document.querySelector(".save-as select"),
+      saveBtn = document.getElementById("downloadselect");
+
+    selectMenu.addEventListener("change", () => {
+      const selectedFormat = selectMenu.options[selectMenu.selectedIndex].text;
+      saveBtn.innerText = `Save As ${selectedFormat.split(" ")[0]} File`;
+    });
+
+    saveBtn.addEventListener("click", () => {
+      const blob = new Blob([textarea.value], { type: selectMenu.value });
+      const fileUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.download = fileNameInput.value;
+      link.href = fileUrl;
+      link.click();
+    });
+  </script>
+</body>
+
 </html>
