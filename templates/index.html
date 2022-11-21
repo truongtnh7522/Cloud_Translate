@@ -927,7 +927,7 @@
     const textarea = document.getElementById("outputText"),
       fileNameInput = document.querySelector(".file-name input"),
       selectMenu = document.querySelector(".save-as select"),
-      saveBtn = document.querySelectorAll("downloadselect");
+      saveBtn = document.getElementById("downloadselect");
 
     selectMenu.addEventListener("change", () => {
       const selectedFormat = selectMenu.options[selectMenu.selectedIndex].text;
