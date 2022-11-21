@@ -25,6 +25,13 @@
       type="image/png"
       href="translate-app/templates/NPC.png"
     />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   </head>
 
   <body>
@@ -206,6 +213,19 @@ h1::before {
 .btn:hover {
   transform: scale(1.05);
 }
+.form-group .clear-btn{
+    position: absolute;
+    right: 820px;
+    top: 240px;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(244, 244, 244);
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+
+    outline: none;
+}
     </style>
 
     <div class="container">
@@ -339,6 +359,12 @@ h1::before {
                 style="width: 600px; border: 1px solid black"
                 placeholder="Nhập chữ vào đây"
               ></textarea>
+              <button
+                class="clear-btn btn"
+                onclick="clearInputs()"
+                style="background: #3333; line-height: 15px; color: white;"
+              >
+              <i class="fa-solid fa-xmark"></i>
             </div>
 
             <div class="group-btn">
@@ -349,13 +375,7 @@ h1::before {
               >
                 <i class="fa fa-volume-up text-light"></i>
               </button>
-              <button
-                class="clear-btn btn"
-                onclick="clearInputs()"
-                style="background: #198754; line-height: 15px; color: white"
-              >
-                <i class="fas fa-broom"></i>
-              </button>
+             
 
               <button
                 class="download-btn btn"
@@ -549,7 +569,7 @@ h1::before {
           class="main__menu--tool-form1"
         >
           <input
-            style="color: black"
+            style="color: black;"
             type="file"
             ,
             name="filename"
